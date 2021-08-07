@@ -10,22 +10,6 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row justify-content-end">
-            <div class="col-2">
-                <p>Выберите тему</p>
-            </div>
-            <div class="col-2">
-                <select name="background" id="background" onchange="changeTheme(this.value)">
-                    <!-- <option disabled selected="selected">Выберите тему</option> -->
-                    <option value="quartz">quartz</option>
-                    <option value="sketchy">sketchy</option>
-                    <option value="darkly">darkly</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    </div>
 
     <div class="container mt-3">
         <div class="row justify-content-center">
@@ -72,7 +56,7 @@
                     <div>
                         <button class="btn btn-danger" id="btn" onclick="calc()">Посчитать</button>
                     </div>
-                    <!-- <div id="result"></div> -->
+                    
                 </form>
             </div>
 
@@ -121,40 +105,12 @@
     </div>
 
     <script>
-        function changeTheme(sender) {
-            switch (sender) {
-                case "quartz":
-                    document.getElementById("theme").href = "../bootstrap_quartz.css";
-                    break;
-                case "sketchy":
-                    document.getElementById("theme").href = "../bootstrap_sketchy.css";
-                    break;
-                case "darkly":
-                    document.getElementById("theme").href = "../bootstrap_darkly.css";
-                    break;
-            // switch (document.getElementById("background").value) {
-            //     case "quartz":
-            //         document.getElementById("theme").href = "../bootstrap_quartz.css";
-            //         break;
-            //     case "sketchy":
-            //         document.getElementById("theme").href = "../bootstrap_sketchy.css";
-            //         break;
-            //     case "darkly":
-            //         document.getElementById("theme").href = "../bootstrap_darkly.css";
-            //         break;
-            }
-        }
-
-        
 
         const calc = () => {
             const weight = document.querySelector('#weight').value;
             const height = document.querySelector('#height').value;
             const volume = document.querySelector('#volume').value;
             const strength = document.querySelector('#drinks option:checked').value;
-            // console.log("strength", strength)
-            // const strength2 = document.querySelector('#drinks select').value;
-            // console.log("strength2", strength2)
             const sex = document.querySelector('input[type="radio"]:checked').value;
 
             //let result = Math.round(volume * (strength*0.01) / (weight * sex));
@@ -162,24 +118,10 @@
 
 
 
-            //saveToLocalStorage();
-
             generateTable (weight, height, strength, volume, result);
         }
 
-        // saveToLocalStorage = (weight) => {
-        //     if (weight) {
-        //         localStorage.setItem("weight", JSON.stringify(weight));
-        //     }
-        // }
-
-        // const getFromLocalStorage = () => {
-        //     // mappedData = localStorage.getItem("lastSearch") ? JSON.parse(localStorage.getItem(
-        //     //                 "lastSearch")) : [];
-        //     weight = localStorage.getItem("weight") ? JSON.parse(localStorage.getItem(
-        //         "weight")) : '';
-        //     // пустая страница при пустом массиве в локал сторидж, если предыдущий поиск не получил результата 
-        // }
+        
 
         const generateTable = (weight, height, strength, volume, result) => {
             document.getElementById('result').innerHTML = `<div>
@@ -217,10 +159,7 @@
             </div>`
         }
 
-        // document.addEventListener("DOMContentLoaded", () => {
-        //     // getFromLocalStorage();
-        //     // generateTable();
-        // })
+        
     </script>
 </body>
 
